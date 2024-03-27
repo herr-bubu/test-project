@@ -1,5 +1,8 @@
 name: Approve and Merge
-on: pull_request_target
+on:
+  pull_request_target:
+  workflow_run:
+    workflows: ["Publish on tag"]
 
 jobs:
   approve-and-merge:
