@@ -1,11 +1,14 @@
 name: Approve and Merge
-on: pull_request_target
+on:
+  pull_request_target:
+  workflow_dispatch:
 
 jobs:
   approve-and-merge:
+    name: Publish and Merge
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+#    permissions:
+#      pull-requests: write
 #    if: github.actor == 'github-actions'
     steps:
       - name: Auto Approve PR
