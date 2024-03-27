@@ -1,4 +1,4 @@
-name: Auto approve
+name: Approve and Merge
 on: pull_request_target
 
 jobs:
