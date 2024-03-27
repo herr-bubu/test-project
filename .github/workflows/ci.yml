@@ -72,12 +72,3 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr create --title "Bump Version to $VERSION" --body "Bump Version to $VERSION" --label "automerge" --head "bump-version-to-$VERSION" --base main
-      - name: Auto Approve PR
-        uses: hmarr/auto-approve-action@v4
-      - name: Push next version release
-        if: github.actor == 'github-actions'
-        uses: pascalgn/automerge-action@v0.16.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_METHOD: "squash"
-          MERGE_COMMIT_MESSAGE: "Bump Version to $VERSION"
