@@ -1,9 +1,8 @@
 {
   "name": "@herr-bubu/test-project",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "license": "Apache-2.0",
-  "scripts": {
-  },
+  "scripts": {},
   "private": true,
   "dependencies": {
     "fabric-ca-client": "^2.2.20",
