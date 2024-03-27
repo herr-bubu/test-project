@@ -1,6 +1,5 @@
 name: Approve and Merge
-on:
-  pull_request_target:
+on: pull_request_target
 
 jobs:
   approve-and-merge:
@@ -12,7 +11,6 @@ jobs:
       - name: Auto Approve PR
         uses: hmarr/auto-approve-action@v4
       - name: Push next version release
-        if: github.actor == 'github-actions'
         uses: pascalgn/automerge-action@v0.16.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
