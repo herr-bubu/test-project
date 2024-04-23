@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 env:
-  PAGES_BRANCH: gh-pages
   HTTPS_REMOTE: "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
 
 jobs:
