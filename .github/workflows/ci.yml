@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ci]
     steps:
-      - name:
+      - name: Checkout
         uses: actions/checkout@v4
 
   publish:
@@ -84,5 +84,5 @@ jobs:
           git push --set-upstream origin bump-version-to-$VERSION
       - name: Create Pull Request
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_BOT_TOKEN }}
         run: gh pr create --title "Bump Version to $VERSION" --body "Bump Version to $VERSION" --label "automerge" --head "bump-version-to-$VERSION" --base main
