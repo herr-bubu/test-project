@@ -88,6 +88,7 @@ jobs:
           GH_TOKEN: ${{ secrets.RELEASE_BOT_TOKEN }}
         run: gh pr create --title "Bump Version to $VERSION" --body "Bump Version to $VERSION" --label "automerge" --head "bump-version-to-$VERSION" --base main
   approve-and-merge:
+    needs: [bump-version]
     name: Publish and Merge
     runs-on: ubuntu-latest
     #    permissions:
