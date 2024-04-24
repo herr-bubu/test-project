@@ -87,3 +87,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.RELEASE_BOT_TOKEN }}
         run: gh pr create --title "Bump Version to $VERSION" --body "Bump Version to $VERSION" --label "automerge" --head "bump-version-to-$VERSION" --base main
+  approve-and-merge:
+    name: Publish and Merge
+    runs-on: ubuntu-latest
+    #    permissions:
+    #      pull-requests: write
+    if: github.actor == 'github-actions'
+    steps:
+      - name: Auto Approve PR
+        uses: hmarr/auto-approve-action@v4
+      - name: Push next version release
+        uses: pascalgn/automerge-action@v0.16.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "Bump Version"
